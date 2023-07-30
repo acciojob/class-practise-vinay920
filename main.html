@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <title>Selector Class Example</title>
+    <style>
+        .selector {
+            color: #00f;
+            background-color: #eee;
+        }
+    </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <p>This is paragraph 1. It will have the "selector" class applied to it.</p>
+    <p>This is paragraph 2. It won't have any special class applied to it.</p>
+    <p>This is paragraph 3. It will also have the "selector" class applied to it.</p>
 
+    <script>
+        class Selector {
+            constructor(selectorName) {
+                this.selectorName = selectorName;
+            }
+
+            applyStyle() {
+                const elements = document.querySelectorAll(this.selectorName);
+                elements.forEach((element) => {
+                    element.classList.add('selector');
+                });
+            }
+        }
+
+        // Create an instance of the "Selector" class and apply it to paragraphs 1 and 3.
+        const selector = new Selector('p:nth-child(1), p:nth-child(3)');
+        selector.applyStyle();
+    </script>
 </body>
-
 </html>
